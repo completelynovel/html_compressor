@@ -1,53 +1,21 @@
-# encoding: utf-8
-
-require 'rubygems'
-require 'bundler'
-begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
-end
-require 'rake'
-
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "html_compressor"
-  gem.homepage = "http://github.com/thorsson/html_compressor"
-  gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "ivan.turkovic@gmail.com"
-  gem.authors = ["Ivan Turkovic"]
-  # dependencies defined in Gemfile
-end
-Jeweler::RubygemsDotOrgTasks.new
-
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
-
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
-end
+require "rubygems"
+require "rake/gempackagetask"
+require "rake/rdoctask"
+require "rake/testtask"
 
 task :default => :test
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+Rake::TestTask.new do |t|
+  t.libs += ["lib", "test"]
+  t.test_files = FileList["test/*_test.rb"]
+  t.verbose = true
+end
 
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "html_compressor #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+Rake::RDocTask.new do |t|
+  t.rdoc_files.include("README.rdoc", "lib/**/*.rb")
+end
+
+Rake::GemPackageTask.new(eval(IO.read(File.join(File.dirname(__FILE__), "html_compressor.gemspec")))) do |pkg|
+  pkg.need_zip = true
+  pkg.need_tar = true
 end
