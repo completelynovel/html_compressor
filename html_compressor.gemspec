@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   s.name = "html_compressor"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
   s.date = "2011-05-16"
   s.summary = "HTML wrapper for htmlcompressor"
   s.email = "me@ivanturkovic.com"
   s.description = "Easily compress your files with html_compressor. Use html_compressor natively inside ruby code."
-  s.homepage = "http://github.com/thorsson/html_compressor/"
+  s.homepage = "http://github.com/completelynovel/html_compressor"
   s.rubyforge_project = "html_compressor"
   s.has_rdoc = true
   s.authors = ["Ivan Turkovic"]
