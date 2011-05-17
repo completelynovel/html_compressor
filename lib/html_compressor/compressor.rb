@@ -35,7 +35,7 @@ module HtmlCompressor #:nodoc:
     # Otherwise, +compress+ returns a string of compressed code.
     #
     # ==== Example: Compress HTML
-    #   compressor = HtmlCompressor::CssCompressor.new
+    #   compressor = HtmlCompressor::HtmlCompressor.new
     #   compressor.compress(<<-END_HTML)
     #   <html>     
     #     <head>

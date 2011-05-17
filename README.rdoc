@@ -1,1 +1,24 @@
 = Ruby wrapper for HTML Compressor
+
+== Installation:
+gem install html_compressor
+
+== Usage
+
+require 'html_compressor'
+
+compressor = HtmlCompressor::HtmlCompressor.new
+compressor.compress(<<-END_HTML)
+<html>     
+ <head>
+ </head>
+ <body>
+ fdgdfgf
+
+
+ </body>
+</html>  
+END_HTML
+
+Output "<html><head></head><body>fdgdfgf</body></html>"
+
