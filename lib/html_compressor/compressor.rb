@@ -94,7 +94,7 @@ module HtmlCompressor #:nodoc:
       end
 
       def path_to_jar_file
-        options.delete(:jar_file) || File.join(File.dirname(__FILE__), *%w".. htmlcompressor-1.3.1.jar")
+        options.delete(:jar_file) || File.join(File.dirname(__FILE__), *%w".. htmlcompressor-1.5.3.jar")
       end
 
       def streamify(stream_or_string)
