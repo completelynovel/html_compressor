@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = "html_compressor"
-  s.version = "0.0.2"
-  s.date = "2011-05-16"
+  s.version = "0.0.3"
+  s.date = "2012-12-28"
   s.summary = "HTML wrapper for htmlcompressor"
   s.email = "me@ivanturkovic.com"
   s.description = "Easily compress your files with html_compressor. Use html_compressor natively inside ruby code."
